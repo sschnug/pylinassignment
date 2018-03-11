@@ -27,6 +27,8 @@ std::pair<int, double> linear_assignment(std::vector<std::vector<double> >& cost
     Graph g;
     Graph::ArcMap<LimitValueType> u_i(g), c_i(g);
     Graph::NodeMap<LimitValueType> s_i(g);
+    g.reserveNode(M + N + 2);
+    g.reserveArc(M + M*N + N);
 
     // source and sink nodes
     Graph::Node source_node = g.addNode();
@@ -36,14 +38,14 @@ std::pair<int, double> linear_assignment(std::vector<std::vector<double> >& cost
     s_i[sink_node] = -cost_matrix.size();
 
     // other nodes
-    std::vector<Graph::Node> workers;
-    std::vector<Graph::Node> tasks;
+    std::vector<Graph::Node> workers(M);
+    std::vector<Graph::Node> tasks(N);
 
     for(int m=0; m<M; ++m)
-      workers.push_back(g.addNode());
+      workers[m] = g.addNode();
 
     for(int n=0; n<N; ++n)
-      tasks.push_back(g.addNode());
+      tasks[n] = g.addNode();
 
     // arcs
     for(int m=0; m<M; ++m)
