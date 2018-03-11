@@ -16,7 +16,7 @@ print('lemon: ', lemon)
 
 # random example
 print('\nRandom example\n')
-cost = np.random.randint(-1e4, 1e4, size=(750,750))
+cost = np.random.randint(0, 1e4, size=(400, 500))
 
 s_t = perf_counter()
 row_ind, col_ind = linear_sum_assignment(cost)

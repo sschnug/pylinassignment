@@ -22,23 +22,16 @@ It's just a proof-of-concept. It does not:
 ## Example
 Small example comparing this approach with scipy's solver based on the *hungarian-algorithm*:
 
-    scipy small example: (3,3)
+    scipy small example
 
     scipy:  5
     Time (ns): network setup: 0
     Time (ns): network simplex: 0
     lemon:  (1, 5.0)
 
-    Random example: (750,750)
+    Large Random example (dimension: (1500,2000))
 
-    scipy:  -7467684  ->  26.511250686002313 secs
-    Time (ns): network setup: 62
-    Time (ns): network simplex: 106
-    lemon:  (1, -7467684.0) ->  0.21490485699905548 secs
-
-    Random example: (1000,1250)
-
-    scipy:  -9979270  ->  110.49967523400119 secs
-    Time (ns): network setup: 165
-    Time (ns): network simplex: 81
-    lemon:  (1, -9979270.0) ->  0.3604156650035293 secs
+    scipy:  9198  ->  540.8194481560058 secs
+    Time (ns): network setup: 426
+    Time (ns): network simplex: 160
+    lemon:  (1, 9198.0) ->  0.9254578690015478 secs
